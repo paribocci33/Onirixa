@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ONIRIXA: cool gray digital newspaper, editorial ink and restrained signal red. */
+/* ONIRIXA: monochrome reading-first journal with a single signature red. */
 @theme inline {
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
@@ -33,41 +33,41 @@
   --color-graphite: var(--graphite);
   --color-paper: var(--paper);
   --color-surface: var(--surface);
-  --font-display: "Newsreader", Georgia, serif;
-  --font-body: "DM Sans", Arial, sans-serif;
-  --font-sans: "DM Sans", Arial, sans-serif;
+  --font-display: "Libre Baskerville", Georgia, serif;
+  --font-body: "IBM Plex Sans", Arial, sans-serif;
+  --font-sans: "IBM Plex Sans", Arial, sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
 }
 :root {
-  --radius: 0.25rem;
-  --ink: oklch(0.19 0.014 255);
-  --graphite: oklch(0.42 0.012 255);
-  --paper: oklch(0.95 0.004 255);
-  --surface: oklch(0.985 0.002 255);
+  --radius: 0.125rem;
+  --ink: oklch(0.17 0 0);
+  --graphite: oklch(0.43 0 0);
+  --paper: oklch(0.985 0 0);
+  --surface: oklch(1 0 0);
   --background: var(--paper);
   --foreground: var(--ink);
   --card: var(--surface);
   --card-foreground: var(--ink);
   --popover: var(--surface);
   --popover-foreground: var(--ink);
-  --primary: oklch(0.38 0.16 22);
+  --primary: var(--ink);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.9 0.005 255);
+  --secondary: oklch(0.93 0 0);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.91 0.005 255);
+  --muted: oklch(0.92 0 0);
   --muted-foreground: var(--graphite);
-  --accent: oklch(0.43 0.17 23);
+  --accent: oklch(0.43 0.18 23);
   --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.5 0.21 25);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.78 0.008 255);
+  --border: oklch(0.84 0 0);
   --input: var(--border);
   --ring: var(--accent);
 }
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }
-  body { background: var(--color-background); color: var(--color-foreground); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  body { background: var(--color-background); color: var(--color-foreground); font-family: var(--font-body); letter-spacing: 0; -webkit-font-smoothing: antialiased; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }

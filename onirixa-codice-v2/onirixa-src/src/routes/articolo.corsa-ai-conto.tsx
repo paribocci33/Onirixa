@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import aiImg from "@/assets/onirixa/ai-editorial.jpg";
+import { EditorialFooter, EditorialHeader } from "@/components/onirixa/editorial-chrome";
 
 export const Route = createFileRoute("/articolo/corsa-ai-conto")({
   head: () => ({
@@ -15,14 +16,6 @@ export const Route = createFileRoute("/articolo/corsa-ai-conto")({
   }),
   component: ArticoloCorsaAiConto,
 });
-
-const navItems = [
-  { label: "Società", href: "/#societa" },
-  { label: "Tecnologia", href: "/#tecnologia" },
-  { label: "Lavoro", href: "/#lavoro" },
-  { label: "Milano", href: "/#milano" },
-  { label: "Cultura", href: "/#cultura" },
-];
 
 const paragraphGroups: { heading?: string; paragraphs: string[] }[] = [
   {
@@ -67,52 +60,35 @@ const paragraphGroups: { heading?: string; paragraphs: string[] }[] = [
 
 function ArticoloCorsaAiConto() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      <div className="border-b border-border bg-surface px-5 py-2 text-center font-mono text-[10px] uppercase text-graphite sm:px-8">
-        Magazine indipendente · Idee sul presente
-      </div>
-      <header className="bg-surface">
-        <div className="mx-auto flex max-w-7xl items-end justify-between gap-4 px-5 py-5 sm:px-8 md:py-7">
-          <Link to="/" className="flex flex-col">
-            <span className="font-display text-[39px] font-black leading-none text-ink sm:text-[53px] md:text-[68px]">ONIRIXA<span className="text-accent">.</span></span>
-            <span className="mt-2 font-mono text-[10px] uppercase text-graphite sm:text-xs">Idee sul presente</span>
-          </Link>
-          <span className="hidden border-l border-border pl-5 font-mono text-[11px] uppercase text-graphite sm:block">Società / tecnologia / cultura<br />Una lettura diversa del presente</span>
-        </div>
-        <nav aria-label="Sezioni" className="border-y border-ink bg-surface px-5 sm:px-8">
-          <div className="mx-auto flex max-w-7xl gap-6 overflow-x-auto whitespace-nowrap py-3 md:gap-10">
-            {navItems.map(item => <Link key={item.label} to={item.href} className="font-sans text-xs font-bold uppercase text-ink transition-colors hover:text-accent">{item.label}</Link>)}
-          </div>
-        </nav>
-      </header>
+    <div className="min-h-screen bg-background text-foreground">
+      <EditorialHeader compact />
 
-      <main className="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
-        <div className="flex items-center justify-between border-b border-border py-4 font-mono text-[10px] uppercase text-graphite">
-          <Link to="/" className="transition-colors hover:text-accent">← Homepage</Link>
-          <span>ONIRIXA / Tecnologia</span>
+      <main className="mx-auto max-w-3xl px-5 pb-24 sm:px-8">
+        <div className="border-b border-border py-5 font-sans text-[10px] uppercase tracking-wide text-muted-foreground">
+          <Link to="/" className="transition-colors hover:text-foreground">← Homepage</Link>
         </div>
 
         <article>
-          <header className="pt-7">
-            <p className="font-mono text-[11px] uppercase text-accent">Tecnologia <span className="mx-2 text-graphite">/</span> 28 settembre 2026</p>
-            <h1 className="mt-3 font-display text-[34px] font-bold leading-[1.06] text-ink sm:text-[46px]">La grande corsa all'AI ha un problema: il conto</h1>
-            <p className="mt-5 text-lg leading-relaxed text-graphite">Le previsioni sull'estinzione dell'umanità arrivano mentre l'industria brucia capitali enormi. Il problema non è soltanto capire quanto sarà potente l'intelligenza artificiale, ma quanto sia sostenibile la corsa che la sta costruendo.</p>
-            <p className="mt-5 font-mono text-[11px] text-graphite">Di Filippo Bocciolesi</p>
+          <header className="pt-12 sm:pt-20">
+            <p className="font-sans text-[11px] uppercase tracking-wide text-muted-foreground">Tecnologia <span className="mx-2">·</span> 28 settembre 2026 <span className="mx-2">·</span> 8 min di lettura</p>
+            <h1 className="mt-5 text-balance font-display text-[clamp(2.5rem,7vw,4.6rem)] font-bold leading-[1.08]">La grande corsa all'AI ha un problema: il conto</h1>
+            <p className="mt-7 font-sans text-lg leading-relaxed text-muted-foreground sm:text-xl">Le previsioni sull'estinzione dell'umanità arrivano mentre l'industria brucia capitali enormi. Il problema non è soltanto capire quanto sarà potente l'intelligenza artificiale, ma quanto sia sostenibile la corsa che la sta costruendo.</p>
+            <p className="mt-6 font-sans text-xs text-muted-foreground">Di Filippo Bocciolesi</p>
           </header>
 
-          <div className="mt-7 overflow-hidden bg-muted">
-            <img src={aiImg} alt="Una persona lavora al computer con una visualizzazione di dati sullo schermo" width={1600} height={900} className="aspect-[16/9] w-full object-cover" />
+          <div className="mt-10 overflow-hidden bg-muted">
+            <img src={aiImg} alt="Una persona lavora al computer con una visualizzazione di dati sullo schermo" width={1600} height={900} className="aspect-[16/9] w-full object-cover grayscale" />
           </div>
 
-          <div className="mt-8 space-y-5 font-display text-[17px] leading-[1.75] text-ink">
+          <div className="mx-auto mt-12 max-w-2xl space-y-6 font-display text-[17px] leading-[1.85] sm:text-[18px]">
             {paragraphGroups.map((group, groupIndex) => (
               <div key={group.heading ?? `intro-${groupIndex}`}>
-                {group.heading && <h2 className="mb-4 mt-9 border-t border-border pt-6 font-display text-[26px] font-bold leading-tight text-ink">{group.heading}</h2>}
+                {group.heading && <h2 className="mb-5 mt-12 border-t border-border pt-8 font-display text-[26px] font-bold leading-tight sm:text-[30px]">{group.heading}</h2>}
                 {group.paragraphs.map((paragraph, paragraphIndex) => (
                   <p
                     key={paragraphIndex}
                     className={groupIndex === 0 && paragraphIndex === 0
-                      ? "first-letter:float-left first-letter:mr-2 first-letter:mt-1 first-letter:font-display first-letter:text-[54px] first-letter:font-bold first-letter:leading-[0.85] first-letter:text-accent"
+                      ? "first-letter:float-left first-letter:mr-2 first-letter:mt-1 first-letter:font-display first-letter:text-[54px] first-letter:font-bold first-letter:leading-[0.85]"
                       : undefined}
                   >
                     {paragraph}
@@ -122,22 +98,16 @@ function ArticoloCorsaAiConto() {
             ))}
           </div>
 
-          <p className="mt-10 border-l-2 border-accent pl-5 font-display text-[22px] font-semibold leading-[1.35] text-ink">Perché una tecnologia può essere contemporaneamente rivoluzionaria e sopravvalutata.</p>
+          <p className="mx-auto mt-14 max-w-2xl border-l-2 border-foreground pl-5 font-display text-[22px] font-bold leading-[1.45]">Perché una tecnologia può essere contemporaneamente rivoluzionaria e sopravvalutata.</p>
 
-          <div className="mt-10 flex items-center justify-between border-t border-ink pt-5 font-mono text-[10px] uppercase text-graphite">
+          <div className="mt-14 flex items-center justify-between border-t border-foreground pt-5 font-sans text-[10px] uppercase tracking-wide text-muted-foreground">
             <span>Filippo Bocciolesi</span>
-            <Link to="/" className="transition-colors hover:text-accent">Torna alla homepage →</Link>
+            <Link to="/" className="transition-colors hover:text-foreground">Torna alla homepage →</Link>
           </div>
         </article>
       </main>
 
-      <footer className="border-t border-ink bg-surface px-5 py-10 sm:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row">
-          <div><span className="font-display text-3xl font-black">ONIRIXA<span className="text-accent">.</span></span><p className="mt-2 font-mono text-[11px] text-graphite">Idee sul presente</p></div>
-          <div className="flex flex-wrap gap-x-7 gap-y-3 text-xs text-graphite"><a className="hover:text-accent" href="mailto:redazione@onirixa.it">Contatti</a><a className="hover:text-accent" href="#">Privacy Policy</a><a className="hover:text-accent" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a><a className="hover:text-accent" href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a></div>
-        </div>
-        <div className="mx-auto mt-10 max-w-7xl border-t border-border pt-5 font-mono text-[10px] uppercase text-graphite">© 2026 ONIRIXA · Milano</div>
-      </footer>
+      <EditorialFooter />
     </div>
   );
 }
