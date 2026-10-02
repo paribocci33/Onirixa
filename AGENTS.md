@@ -9,4 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep ONIRIXA's editorial layout in the homepage route and its visual roles in global CSS tokens; this keeps the magazine hierarchy and palette consistent across sections.
+- Keep ONIRIXA's single-column editorial system in shared chrome components and global CSS tokens; this preserves the reading-first hierarchy and consistent monochrome palette across routes.

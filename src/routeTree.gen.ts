@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ArticoloCorsaAiContoRouteImport } from './routes/articolo.corsa-ai-conto'
+import { Route as ArticoloLaBocciataRouteImport } from './routes/articolo.la-bocciata'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArticoloCorsaAiContoRoute = ArticoloCorsaAiContoRouteImport.update({
+  id: '/articolo/corsa-ai-conto',
+  path: '/articolo/corsa-ai-conto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticoloLaBocciataRoute = ArticoloLaBocciataRouteImport.update({
+  id: '/articolo/la-bocciata',
+  path: '/articolo/la-bocciata',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/articolo/corsa-ai-conto': typeof ArticoloCorsaAiContoRoute
+  '/articolo/la-bocciata': typeof ArticoloLaBocciataRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/articolo/corsa-ai-conto': typeof ArticoloCorsaAiContoRoute
+  '/articolo/la-bocciata': typeof ArticoloLaBocciataRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/articolo/corsa-ai-conto': typeof ArticoloCorsaAiContoRoute
+  '/articolo/la-bocciata': typeof ArticoloLaBocciataRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/articolo/corsa-ai-conto' | '/articolo/la-bocciata'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/articolo/corsa-ai-conto' | '/articolo/la-bocciata'
+  id: '__root__' | '/' | '/articolo/corsa-ai-conto' | '/articolo/la-bocciata'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArticoloCorsaAiContoRoute: typeof ArticoloCorsaAiContoRoute
+  ArticoloLaBocciataRoute: typeof ArticoloLaBocciataRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/articolo/corsa-ai-conto': {
+      id: '/articolo/corsa-ai-conto'
+      path: '/articolo/corsa-ai-conto'
+      fullPath: '/articolo/corsa-ai-conto'
+      preLoaderRoute: typeof ArticoloCorsaAiContoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articolo/la-bocciata': {
+      id: '/articolo/la-bocciata'
+      path: '/articolo/la-bocciata'
+      fullPath: '/articolo/la-bocciata'
+      preLoaderRoute: typeof ArticoloLaBocciataRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArticoloCorsaAiContoRoute: ArticoloCorsaAiContoRoute,
+  ArticoloLaBocciataRoute: ArticoloLaBocciataRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
