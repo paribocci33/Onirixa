@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import aiImg from "@/assets/onirixa/ai-editorial.jpg";
+import aiCover from "@/assets/onirixa/ai-reader-cover.jpg.asset.json";
 import { EditorialFooter, EditorialHeader } from "@/components/onirixa/editorial-chrome";
 
 export const Route = createFileRoute("/articolo/corsa-ai-conto")({
@@ -76,8 +76,8 @@ function ArticoloCorsaAiConto() {
             <p className="mt-6 font-sans text-xs text-muted-foreground">Di Filippo Bocciolesi</p>
           </header>
 
-          <div className="mt-10 overflow-hidden bg-muted">
-            <img src={aiImg} alt="Una persona lavora al computer con una visualizzazione di dati sullo schermo" width={1600} height={900} className="aspect-[16/9] w-full object-cover grayscale" />
+          <div className="mt-10">
+            <img src={aiCover.url} alt="Scrivania con computer e schermi in uno studio" className="h-auto w-full" />
           </div>
 
           <div className="mx-auto mt-12 max-w-2xl space-y-6 font-display text-[17px] leading-[1.85] sm:text-[18px]">

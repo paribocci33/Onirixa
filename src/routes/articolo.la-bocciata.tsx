@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { EditorialFooter, EditorialHeader } from "@/components/onirixa/editorial-chrome";
+import bocciataCover from "@/assets/onirixa/la-bocciata-cover.jpeg.asset.json";
 
 export const Route = createFileRoute("/articolo/la-bocciata")({
   head: () => ({
@@ -40,21 +41,20 @@ function ArticoloLaBocciata() {
 
         <article>
           <header className="pt-12 sm:pt-20">
-            <p className="font-sans text-[11px] uppercase tracking-wide text-muted-foreground">La bocciata <span className="mx-2">·</span> Rubrica del direttore <span className="mx-2">·</span> 2 ottobre 2026 <span className="mx-2">·</span> 5 min di lettura</p>
+            <p className="font-display text-2xl font-bold sm:text-3xl">La bocciata</p>
+            <p className="mt-4 font-sans text-[11px] uppercase tracking-wide text-muted-foreground">Rubrica del direttore <span className="mx-2">·</span> 2 ottobre 2026 <span className="mx-2">·</span> 5 min di lettura</p>
             <h1 className="mt-5 text-balance font-display text-[clamp(2.5rem,7vw,4.6rem)] font-bold leading-[1.08]">Dai Ciampi boys ai Trump boys</h1>
             <p className="mt-7 font-sans text-lg leading-relaxed text-muted-foreground sm:text-xl">Ogni epoca ha i suoi boys. La frontiera si è spostata dall'altra parte dell'Atlantico e ha cambiato natura: dalla finanza e dall'integrazione europea alla Super Intelligence.</p>
           </header>
 
-          <div className="mx-auto mt-12 max-w-2xl space-y-6 font-display text-[17px] leading-[1.85] sm:text-[18px]">
+          <div className="mx-auto mt-12 flow-root max-w-2xl space-y-6 font-display text-[17px] leading-[1.85] sm:text-[18px]">
+            <img
+              src={bocciataCover.url}
+              alt="Disegno a penna di un uomo in giacca che lancia una boccia"
+              className="float-left mr-5 mb-2 w-32 sm:w-44"
+            />
             {paragraphs.map((paragraph, index) => (
-              <p
-                key={index}
-                className={index === 0
-                  ? "first-letter:float-left first-letter:mr-2 first-letter:mt-1 first-letter:font-display first-letter:text-[54px] first-letter:font-bold first-letter:leading-[0.85]"
-                  : undefined}
-              >
-                {paragraph}
-              </p>
+              <p key={index}>{paragraph}</p>
             ))}
           </div>
 
