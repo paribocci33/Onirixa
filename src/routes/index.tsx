@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import aiCover from "@/assets/onirixa/ai-reader-cover.jpg.asset.json";
-import bocciataCover from "@/assets/onirixa/la-bocciata-cover.jpeg.asset.json";
+import aiCover from "@/assets/onirixa/ai-reader-cover.jpg";
+import bocciataCover from "@/assets/onirixa/la-bocciata-cover.jpeg";
 import { EditorialFooter, EditorialHeader } from "@/components/onirixa/editorial-chrome";
 
 export const Route = createFileRoute("/")({
@@ -41,7 +41,7 @@ const articles: Article[] = [
     title: "Dai Ciampi boys ai Trump boys",
     excerpt: "Ogni epoca ha i suoi boys. La frontiera si è spostata dall'altra parte dell'Atlantico e ha cambiato natura: dalla finanza alla Super Intelligence.",
     href: "/articolo/la-bocciata",
-    cover: bocciataCover.url,
+    cover: bocciataCover,
     coverAlt: "Disegno a penna di un uomo in giacca che lancia una boccia",
     readingTime: "5 min di lettura",
   },
@@ -53,7 +53,7 @@ const articles: Article[] = [
     title: "La grande corsa all’AI ha un problema: il conto",
     excerpt: "Le previsioni sull’estinzione dell’umanità arrivano mentre l’industria brucia capitali enormi. Quanto è sostenibile la corsa che sta costruendo l’intelligenza artificiale?",
     href: "/articolo/corsa-ai-conto",
-    cover: aiCover.url,
+    cover: aiCover,
     coverAlt: "Scrivania con computer e schermi in uno studio",
     readingTime: "8 min di lettura",
     author: "Filippo Bocciolesi",
@@ -161,7 +161,7 @@ function Index() {
               </p>
               {featured.author && <p className="mt-6 font-sans text-xs text-muted-foreground">Di {featured.author}</p>}
             </div>
-            {featured.cover && <div className="mt-9 overflow-hidden">
+            {featured.cover && <div className="mx-auto mt-9 max-w-md overflow-hidden">
               <img
                 src={featured.cover}
                 alt={featured.coverAlt ?? ""}

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { EditorialFooter, EditorialHeader } from "@/components/onirixa/editorial-chrome";
-import bocciataCover from "@/assets/onirixa/la-bocciata-cover.jpeg.asset.json";
+import bocciataCover from "@/assets/onirixa/la-bocciata-cover.jpeg";
 
 export const Route = createFileRoute("/articolo/la-bocciata")({
   head: () => ({
@@ -49,7 +49,7 @@ function ArticoloLaBocciata() {
 
           <div className="mx-auto mt-12 flow-root max-w-2xl space-y-6 font-display text-[17px] leading-[1.85] sm:text-[18px]">
             <img
-              src={bocciataCover.url}
+              src={bocciataCover}
               alt="Disegno a penna di un uomo in giacca che lancia una boccia"
               className="float-left mr-5 mb-2 w-32 sm:w-44"
             />
