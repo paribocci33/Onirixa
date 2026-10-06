@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import aiCover from "@/assets/onirixa/ai-reader-cover.jpg";
 import bocciataCover from "@/assets/onirixa/la-bocciata-cover.jpeg";
+import icecubeCover from "@/assets/onirixa/icecube-south-pole.jpg";
 import { EditorialFooter, EditorialHeader } from "@/components/onirixa/editorial-chrome";
 
 export const Route = createFileRoute("/")({
@@ -24,7 +25,7 @@ type Article = {
   publishedAt: string;
   title: string;
   excerpt: string;
-  href?: "/articolo/la-bocciata" | "/articolo/corsa-ai-conto";
+  href?: "/articolo/la-bocciata" | "/articolo/corsa-ai-conto" | "/articolo/nobel-halzen";
   cover?: string;
   coverAlt?: string;
   readingTime?: string;
@@ -33,6 +34,19 @@ type Article = {
 
 // Add new articles here with an ISO publication date; the newest automatically leads the home.
 const articles: Article[] = [
+  {
+    id: "scienza",
+    category: "Scienza",
+    date: "6 ottobre 2026",
+    publishedAt: "2026-10-06",
+    title: "Nobel per la Fisica 2026 a Francis Halzen: premiato il “cacciatore di particelle fantasma”",
+    excerpt: "Il fisico belga-statunitense riceve il Nobel per aver trasformato il ghiaccio dell'Antartide in un osservatorio capace di catturare i neutrini provenienti dagli angoli più remoti dell'Universo.",
+    href: "/articolo/nobel-halzen",
+    readingTime: "3 min di lettura",
+    author: "Anselmo Paribocci",
+    cover: icecubeCover,
+    coverAlt: "L'IceCube Laboratory al Polo Sud di notte, sotto la Via Lattea e l'aurora australe",
+  },
   {
     id: "societa",
     category: "La bocciata",
