@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import wordmarkAsset from "@/assets/onirixa/onirixa-wordmark.png.asset.json";
 
 const navItems = [
   { label: "Società", href: "/#societa" },
@@ -10,8 +11,13 @@ const navItems = [
 
 export function Wordmark({ compact = false }: { compact?: boolean }) {
   return (
-    <span className={compact ? "font-display text-2xl font-bold uppercase" : "font-display text-[clamp(3.4rem,10vw,7.5rem)] font-bold uppercase leading-[0.85]"}>
-      ONIRIXA<span className="text-accent">.</span>
+    <span className={compact ? "inline-flex items-end gap-1" : "inline-flex items-end gap-2"}>
+      <img
+        src={wordmarkAsset.url}
+        alt="ONIRIXA"
+        className={compact ? "h-auto w-36 sm:w-40" : "h-auto w-[min(76vw,32rem)] sm:w-[min(72vw,38rem)]"}
+      />
+      <span aria-hidden="true" className={compact ? "mb-[7%] size-1.5 rounded-full bg-accent" : "mb-[7%] size-3 rounded-full bg-accent sm:size-4"} />
     </span>
   );
 }

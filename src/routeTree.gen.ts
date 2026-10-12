@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticoloCorsaAiContoRouteImport } from './routes/articolo.corsa-ai-conto'
 import { Route as ArticoloLaBocciataRouteImport } from './routes/articolo.la-bocciata'
+import { Route as ArticoloNobelHalzenRouteImport } from './routes/articolo.nobel-halzen'
+import { Route as ArticoloTrumpDieselRussoRouteImport } from './routes/articolo.trump-diesel-russo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +30,70 @@ const ArticoloLaBocciataRoute = ArticoloLaBocciataRouteImport.update({
   path: '/articolo/la-bocciata',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArticoloNobelHalzenRoute = ArticoloNobelHalzenRouteImport.update({
+  id: '/articolo/nobel-halzen',
+  path: '/articolo/nobel-halzen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticoloTrumpDieselRussoRoute =
+  ArticoloTrumpDieselRussoRouteImport.update({
+    id: '/articolo/trump-diesel-russo',
+    path: '/articolo/trump-diesel-russo',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/articolo/corsa-ai-conto': typeof ArticoloCorsaAiContoRoute
   '/articolo/la-bocciata': typeof ArticoloLaBocciataRoute
+  '/articolo/nobel-halzen': typeof ArticoloNobelHalzenRoute
+  '/articolo/trump-diesel-russo': typeof ArticoloTrumpDieselRussoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/articolo/corsa-ai-conto': typeof ArticoloCorsaAiContoRoute
   '/articolo/la-bocciata': typeof ArticoloLaBocciataRoute
+  '/articolo/nobel-halzen': typeof ArticoloNobelHalzenRoute
+  '/articolo/trump-diesel-russo': typeof ArticoloTrumpDieselRussoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/articolo/corsa-ai-conto': typeof ArticoloCorsaAiContoRoute
   '/articolo/la-bocciata': typeof ArticoloLaBocciataRoute
+  '/articolo/nobel-halzen': typeof ArticoloNobelHalzenRoute
+  '/articolo/trump-diesel-russo': typeof ArticoloTrumpDieselRussoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/articolo/corsa-ai-conto' | '/articolo/la-bocciata'
+  fullPaths:
+    | '/'
+    | '/articolo/corsa-ai-conto'
+    | '/articolo/la-bocciata'
+    | '/articolo/nobel-halzen'
+    | '/articolo/trump-diesel-russo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/articolo/corsa-ai-conto' | '/articolo/la-bocciata'
-  id: '__root__' | '/' | '/articolo/corsa-ai-conto' | '/articolo/la-bocciata'
+  to:
+    | '/'
+    | '/articolo/corsa-ai-conto'
+    | '/articolo/la-bocciata'
+    | '/articolo/nobel-halzen'
+    | '/articolo/trump-diesel-russo'
+  id:
+    | '__root__'
+    | '/'
+    | '/articolo/corsa-ai-conto'
+    | '/articolo/la-bocciata'
+    | '/articolo/nobel-halzen'
+    | '/articolo/trump-diesel-russo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArticoloCorsaAiContoRoute: typeof ArticoloCorsaAiContoRoute
   ArticoloLaBocciataRoute: typeof ArticoloLaBocciataRoute
+  ArticoloNobelHalzenRoute: typeof ArticoloNobelHalzenRoute
+  ArticoloTrumpDieselRussoRoute: typeof ArticoloTrumpDieselRussoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +119,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticoloLaBocciataRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/articolo/nobel-halzen': {
+      id: '/articolo/nobel-halzen'
+      path: '/articolo/nobel-halzen'
+      fullPath: '/articolo/nobel-halzen'
+      preLoaderRoute: typeof ArticoloNobelHalzenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articolo/trump-diesel-russo': {
+      id: '/articolo/trump-diesel-russo'
+      path: '/articolo/trump-diesel-russo'
+      fullPath: '/articolo/trump-diesel-russo'
+      preLoaderRoute: typeof ArticoloTrumpDieselRussoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +140,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArticoloCorsaAiContoRoute: ArticoloCorsaAiContoRoute,
   ArticoloLaBocciataRoute: ArticoloLaBocciataRoute,
+  ArticoloNobelHalzenRoute: ArticoloNobelHalzenRoute,
+  ArticoloTrumpDieselRussoRoute: ArticoloTrumpDieselRussoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

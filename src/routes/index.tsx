@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import aiCover from "@/assets/onirixa/ai-reader-cover.jpg";
 import bocciataCover from "@/assets/onirixa/la-bocciata-cover.jpeg";
 import icecubeCover from "@/assets/onirixa/icecube-south-pole.jpg";
+import trumpPutinCover from "@/assets/onirixa/trump-putin-alaska.png";
 import { EditorialFooter, EditorialHeader } from "@/components/onirixa/editorial-chrome";
 
 export const Route = createFileRoute("/")({
@@ -25,7 +26,7 @@ type Article = {
   publishedAt: string;
   title: string;
   excerpt: string;
-  href?: "/articolo/la-bocciata" | "/articolo/corsa-ai-conto" | "/articolo/nobel-halzen";
+  href?: "/articolo/la-bocciata" | "/articolo/corsa-ai-conto" | "/articolo/nobel-halzen" | "/articolo/trump-diesel-russo";
   cover?: string;
   coverAlt?: string;
   readingTime?: string;
@@ -34,6 +35,18 @@ type Article = {
 
 // Add new articles here with an ISO publication date; the newest automatically leads the home.
 const articles: Article[] = [
+  {
+    id: "esteri",
+    category: "Esteri",
+    date: "12 ottobre 2026",
+    publishedAt: "2026-10-12",
+    title: "Trump riapre al diesel russo: accordo con Putin per frenare i prezzi",
+    excerpt: "Washington allenta temporaneamente le sanzioni sul combustibile russo: oltre 300.000 tonnellate di diesel in arrivo, tra critiche di Kiev e del Congresso.",
+    href: "/articolo/trump-diesel-russo",
+    readingTime: "3 min di lettura",
+    cover: trumpPutinCover,
+    coverAlt: "Donald Trump accoglie Vladimir Putin in Alaska, il 15 agosto 2025",
+  },
   {
     id: "scienza",
     category: "Scienza",
