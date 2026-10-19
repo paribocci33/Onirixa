@@ -26,7 +26,7 @@ type Article = {
   publishedAt: string;
   title: string;
   excerpt: string;
-  href?: "/articolo/la-bocciata" | "/articolo/corsa-ai-conto" | "/articolo/nobel-halzen" | "/articolo/trump-diesel-russo";
+  href?: "/articolo/la-bocciata" | "/articolo/corsa-ai-conto" | "/articolo/nobel-halzen" | "/articolo/trump-diesel-russo" | "/articolo/francia-spesa-pubblica";
   cover?: string;
   coverAlt?: string;
   readingTime?: string;
@@ -35,6 +35,17 @@ type Article = {
 
 // Add new articles here with an ISO publication date; the newest automatically leads the home.
 const articles: Article[] = [
+  {
+    category: "La bocciata",
+    date: "19 ottobre 2026",
+    publishedAt: "2026-10-19",
+    title: "La Francia spende più dell’Unione Sovietica?",
+    excerpt: "Una frase provocatoria che contiene un fondo di verità. Ma non quello che molti immaginano.",
+    href: "/articolo/francia-spesa-pubblica",
+    cover: bocciataCover,
+    coverAlt: "Disegno a penna di un uomo in giacca che lancia una boccia",
+    readingTime: "4 min di lettura",
+  },
   {
     id: "esteri",
     category: "Esteri",

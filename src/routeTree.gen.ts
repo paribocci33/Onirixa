@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticoloCorsaAiContoRouteImport } from './routes/articolo.corsa-ai-conto'
+import { Route as ArticoloFranciaSpesaPubblicaRouteImport } from "./routes/articolo.francia-spesa-pubblica"
 import { Route as ArticoloLaBocciataRouteImport } from './routes/articolo.la-bocciata'
 import { Route as ArticoloNobelHalzenRouteImport } from './routes/articolo.nobel-halzen'
 import { Route as ArticoloTrumpDieselRussoRouteImport } from './routes/articolo.trump-diesel-russo'
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
 const ArticoloCorsaAiContoRoute = ArticoloCorsaAiContoRouteImport.update({
   id: '/articolo/corsa-ai-conto',
   path: '/articolo/corsa-ai-conto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticoloFranciaSpesaPubblicaRoute = ArticoloFranciaSpesaPubblicaRouteImport.update({
+  id: "/articolo/francia-spesa-pubblica",
+  path: "/articolo/francia-spesa-pubblica",
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArticoloLaBocciataRoute = ArticoloLaBocciataRouteImport.update({
@@ -45,6 +51,7 @@ const ArticoloTrumpDieselRussoRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/articolo/corsa-ai-conto': typeof ArticoloCorsaAiContoRoute
+  "/articolo/francia-spesa-pubblica": typeof ArticoloFranciaSpesaPubblicaRoute
   '/articolo/la-bocciata': typeof ArticoloLaBocciataRoute
   '/articolo/nobel-halzen': typeof ArticoloNobelHalzenRoute
   '/articolo/trump-diesel-russo': typeof ArticoloTrumpDieselRussoRoute
@@ -52,6 +59,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/articolo/corsa-ai-conto': typeof ArticoloCorsaAiContoRoute
+  "/articolo/francia-spesa-pubblica": typeof ArticoloFranciaSpesaPubblicaRoute
   '/articolo/la-bocciata': typeof ArticoloLaBocciataRoute
   '/articolo/nobel-halzen': typeof ArticoloNobelHalzenRoute
   '/articolo/trump-diesel-russo': typeof ArticoloTrumpDieselRussoRoute
@@ -60,6 +68,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/articolo/corsa-ai-conto': typeof ArticoloCorsaAiContoRoute
+  "/articolo/francia-spesa-pubblica": typeof ArticoloFranciaSpesaPubblicaRoute
   '/articolo/la-bocciata': typeof ArticoloLaBocciataRoute
   '/articolo/nobel-halzen': typeof ArticoloNobelHalzenRoute
   '/articolo/trump-diesel-russo': typeof ArticoloTrumpDieselRussoRoute
@@ -69,6 +78,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/articolo/corsa-ai-conto'
+    | "/articolo/francia-spesa-pubblica"
     | '/articolo/la-bocciata'
     | '/articolo/nobel-halzen'
     | '/articolo/trump-diesel-russo'
@@ -76,6 +86,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/articolo/corsa-ai-conto'
+    | "/articolo/francia-spesa-pubblica"
     | '/articolo/la-bocciata'
     | '/articolo/nobel-halzen'
     | '/articolo/trump-diesel-russo'
@@ -83,6 +94,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/articolo/corsa-ai-conto'
+    | "/articolo/francia-spesa-pubblica"
     | '/articolo/la-bocciata'
     | '/articolo/nobel-halzen'
     | '/articolo/trump-diesel-russo'
@@ -91,6 +103,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArticoloCorsaAiContoRoute: typeof ArticoloCorsaAiContoRoute
+  ArticoloFranciaSpesaPubblicaRoute: typeof ArticoloFranciaSpesaPubblicaRoute
   ArticoloLaBocciataRoute: typeof ArticoloLaBocciataRoute
   ArticoloNobelHalzenRoute: typeof ArticoloNobelHalzenRoute
   ArticoloTrumpDieselRussoRoute: typeof ArticoloTrumpDieselRussoRoute
@@ -110,6 +123,13 @@ declare module '@tanstack/react-router' {
       path: '/articolo/corsa-ai-conto'
       fullPath: '/articolo/corsa-ai-conto'
       preLoaderRoute: typeof ArticoloCorsaAiContoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/articolo/francia-spesa-pubblica": {
+      id: "/articolo/francia-spesa-pubblica"
+      path: "/articolo/francia-spesa-pubblica"
+      fullPath: "/articolo/francia-spesa-pubblica"
+      preLoaderRoute: typeof ArticoloFranciaSpesaPubblicaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articolo/la-bocciata': {
@@ -139,6 +159,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArticoloCorsaAiContoRoute: ArticoloCorsaAiContoRoute,
+  ArticoloFranciaSpesaPubblicaRoute: ArticoloFranciaSpesaPubblicaRoute,
   ArticoloLaBocciataRoute: ArticoloLaBocciataRoute,
   ArticoloNobelHalzenRoute: ArticoloNobelHalzenRoute,
   ArticoloTrumpDieselRussoRoute: ArticoloTrumpDieselRussoRoute,
