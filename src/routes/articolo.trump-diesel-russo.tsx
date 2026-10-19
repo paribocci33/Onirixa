@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { EditorialFooter, EditorialHeader } from "@/components/onirixa/editorial-chrome";
-import trumpPutinCover from "@/assets/onirixa/trump-putin-alaska.png";
+import trumpPutinCover from "@/assets/onirixa/trump-putin-alaska.jpg";
 
 export const Route = createFileRoute("/articolo/trump-diesel-russo")({
   head: () => ({

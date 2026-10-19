@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import aiCover from "@/assets/onirixa/ai-reader-cover.jpg";
 import bocciataCover from "@/assets/onirixa/la-bocciata-cover.jpeg";
 import icecubeCover from "@/assets/onirixa/icecube-south-pole.jpg";
-import trumpPutinCover from "@/assets/onirixa/trump-putin-alaska.png";
+import trumpPutinCover from "@/assets/onirixa/trump-putin-alaska.jpg";
 import { EditorialFooter, EditorialHeader } from "@/components/onirixa/editorial-chrome";
 
 export const Route = createFileRoute("/")({
