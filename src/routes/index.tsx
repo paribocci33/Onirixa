@@ -1,3 +1,4 @@
+
 import { createFileRoute, Link } from "@tanstack/react-router";
 import aiCover from "@/assets/onirixa/ai-reader-cover.jpg";
 import bocciataCover from "@/assets/onirixa/la-bocciata-cover.jpeg";
@@ -26,7 +27,7 @@ type Article = {
   publishedAt: string;
   title: string;
   excerpt: string;
-  href?: "/articolo/la-bocciata" | "/articolo/corsa-ai-conto" | "/articolo/nobel-halzen" | "/articolo/trump-diesel-russo" | "/articolo/francia-spesa-pubblica";
+  href?: "/articolo/la-bocciata" | "/articolo/corsa-ai-conto" | "/articolo/nobel-halzen" | "/articolo/trump-diesel-russo" | "/articolo/francia-spesa-pubblica" | "/articolo/gli-studenti-hanno-vinto";
   cover?: string;
   coverAlt?: string;
   readingTime?: string;
@@ -35,6 +36,18 @@ type Article = {
 
 // Add new articles here with an ISO publication date; the newest automatically leads the home.
 const articles: Article[] = [
+  {
+    id: "serbia",
+    category: "La bocciata",
+    date: "30 ottobre 2026",
+    publishedAt: "2026-10-30",
+    title: "Gli studenti hanno vinto. Ma chi ha detto che abbia vinto l'Europa?",
+    excerpt: "La caduta di Vučić non significa necessariamente una vittoria dell'europeismo. La Serbia resta sospesa tra Bruxelles, Mosca e Pechino, mentre il voto degli studenti apre interrogativi sul futuro del Paese.",
+    href: "/articolo/gli-studenti-hanno-vinto",
+    cover: bocciataCover,
+    coverAlt: "Disegno a penna di un uomo in giacca che lancia una boccia",
+    readingTime: "6 min di lettura",
+  },
   {
     category: "La bocciata",
     date: "19 ottobre 2026",
@@ -189,7 +202,9 @@ function Index() {
             <div>
               {featured.category === "La bocciata" && <p className="mb-5 font-display text-2xl font-bold sm:text-3xl">La bocciata</p>}
               <div className="flex flex-wrap gap-x-3 gap-y-1 font-sans text-[11px] uppercase tracking-wide text-muted-foreground">
-                {featured.category !== "La bocciata" && <><span>{featured.category}</span><span aria-hidden="true">·</span></>}<time dateTime={featured.publishedAt}>{featured.date}</time>{featured.readingTime && <><span aria-hidden="true">·</span><span>{featured.readingTime}</span></>}
+                {featured.category !== "La bocciata" && <><span>{featured.category}</span><span aria-hidden="true">·</span></>}
+                <time dateTime={featured.publishedAt}>{featured.date}</time>
+                {featured.readingTime && <><span aria-hidden="true">·</span><span>{featured.readingTime}</span></>}
               </div>
               <h1 id="featured-title" className="mt-5 text-balance font-display text-[clamp(2.35rem,7vw,4.75rem)] font-bold leading-[1.08] text-foreground decoration-1 underline-offset-8 group-hover:underline">
                 {featured.title}
@@ -219,7 +234,9 @@ function Index() {
                 {"href" in article && article.href ? (
                   <Link to={article.href} className="group block">
                     <div className="flex flex-wrap gap-x-3 gap-y-1 font-sans text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
-                      <span className={article.category === "La bocciata" ? "font-display text-lg font-bold normal-case text-foreground" : undefined}>{article.category}</span><span aria-hidden="true">·</span><time dateTime={article.publishedAt}>{article.date}</time>
+                      <span className={article.category === "La bocciata" ? "font-display text-lg font-bold normal-case text-foreground" : undefined}>{article.category}</span>
+                      <span aria-hidden="true">·</span>
+                      <time dateTime={article.publishedAt}>{article.date}</time>
                     </div>
                     <h3 className="mt-4 max-w-[25ch] text-balance font-display text-[clamp(1.8rem,5vw,2.75rem)] font-bold leading-[1.15] decoration-1 underline-offset-8 group-hover:underline">{article.title}</h3>
                     <p className="mt-4 max-w-2xl font-sans text-[15px] leading-relaxed text-muted-foreground sm:text-base">{article.excerpt}</p>
@@ -227,7 +244,9 @@ function Index() {
                 ) : (
                   <>
                     <div className="flex flex-wrap gap-x-3 gap-y-1 font-sans text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
-                      <span className={article.category === "La bocciata" ? "font-display text-lg font-bold normal-case text-foreground" : undefined}>{article.category}</span><span aria-hidden="true">·</span><time dateTime={article.publishedAt}>{article.date}</time>
+                      <span className={article.category === "La bocciata" ? "font-display text-lg font-bold normal-case text-foreground" : undefined}>{article.category}</span>
+                      <span aria-hidden="true">·</span>
+                      <time dateTime={article.publishedAt}>{article.date}</time>
                     </div>
                     <h3 className="mt-4 max-w-[25ch] text-balance font-display text-[clamp(1.8rem,5vw,2.75rem)] font-bold leading-[1.15]">{article.title}</h3>
                     <p className="mt-4 max-w-2xl font-sans text-[15px] leading-relaxed text-muted-foreground sm:text-base">{article.excerpt}</p>
