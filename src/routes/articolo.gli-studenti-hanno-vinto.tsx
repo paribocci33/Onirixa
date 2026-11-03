@@ -94,3 +94,4 @@ const paragraphs: ReactNode[] = [
     e alla volontà di rompere con il sistema di potere che ha dominato il
     Paese negli ultimi quattordici anni.
     <Sources items={["Reuters", "ABC News"]} />
+     </>,
