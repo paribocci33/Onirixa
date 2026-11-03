@@ -86,7 +86,7 @@ const paragraphs: ReactNode[] = [
     <Sources items={["Reuters", "ABC News", "CBS News"]} />
   </>,
 
-  <>
+    <>
     C'è poi un elemento che rende ancora più difficile interpretare il voto.
     La cosiddetta Lista degli Studenti non nasce come un tradizionale partito
     politico, con una collocazione ideologica chiaramente definita. È una
@@ -94,4 +94,4 @@ const paragraphs: ReactNode[] = [
     e alla volontà di rompere con il sistema di potere che ha dominato il
     Paese negli ultimi quattordici anni.
     <Sources items={["Reuters", "ABC News"]} />
-     </>,
+  </>,
